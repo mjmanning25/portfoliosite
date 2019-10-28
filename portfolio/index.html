@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MikeX Home Page</title>
+  <link rel="stylesheet" href="./css/master.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <!-- MAIN (Center website) -->
+  <div class="main">
+    <h1>mikex.co.nz</h1>
+    <hr>
+    <div class="topnav" id="myTopnav">
+      <a href="#about" class="active">about</a>
+      <a href="#projects">projects</a>
+      <a href="#gallery">gallery</a>
+      <a href="#skills">my-skills</a>
+      <a href="#contact">contact</a>
+      <a href="#social">social-media</a>
+      <a href="#other">other-things</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <hr>
+    <h2 id="about">ABOUT ME</h2>
+    <p>My name is Michael Manning, I'm 20 years old, born in New Zealand.</p>
+    <p>I really enjoy webdesign and programming. I have a few projects that are far from completion but I will be hosting links to them on this page</p>
+
+    <hr>
+
+    <h2 id="projects">PROJECTS</h2>
+    <p>This is my portfolio website to showcase some of the projects that I have been working on.</p>
+
+    <!-- Portfolio Gallery Grid -->
+    <div class="cards">
+      <div class="card">
+        <img src="./images/test.png" alt="TEMP" style="width:100%">
+        <h3>Tag-Do</h3>
+        <p><b>solo project</b></p>
+        <p><em>Tired of having a stupidly long to-do list, me too.</em></p>
+        <p>Tag-Do is my custom do to list website that allows you to set both the priority and a unique tag to any entry, allowing you to go and search for and sort for your task by tags!</p>
+        <p>Currently still in development, and is setup for a single user, I plan to make the system feature a login where unique users can have their own lists.</p>
+        <a class="button" href="#">Check it out</a>
+      </div>
+      <div class="card">
+        <img src="./images/test.png" alt="TEMP" style="width:100%">
+        <h3>Unitec Pathway Planner</h3>
+        <p><b>Group project</b></p>
+        <p>Unitec has a notoriously difficult process for finding class information, my group proposed a solution where in which we would create a website for students to use that would show all relevant information regarding career pathways in a single, easy to navigate location.</p>
+        <p>As with all gorup projects, this didn't work out as planned. But the software as it stands is viewable with our test data in an unfinished state.</p>
+        <p>I wrote the PHP for the pages to handle data being displayed.</p>
+        <a class="button" href="#">Check it out</a>
+      </div>
+      <div class="card">
+        <img src="./images/test.png" alt="TEMP" style="width:100%">
+        <h3>JavaScript Space Game</h3>
+        <p><b>solo project</b></p>
+        <p>As part of my highschool projects for study we were tasked with making a browser game that functioned like Asteroids.</p>
+        <p>Developed in JavaScript a few years ago, I still have the files and will link them to this site to let people check it out</p>
+        <p>(<em>it's nothing fancy but it works</em>)</p>
+        <a class="button" href="#">Check it out</a>
+      </div>
+      <div class="card">
+        <img src="./images/test.png" alt="TEMP" style="width:100%">
+        <h3>Zombie Ducks Like Bread</h3>
+        <p><b>Group project</b></p>
+        <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+        <a class="button" href="#">Check it out</a>
+      </div>
+      <div class="card">
+        <img src="./images/test.png" alt="TEMP" style="width:100%">
+        <h3>Escape Retirement Game</h3>
+        <p><b>Group project</b></p>
+        <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+        <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+        <a class="button" href="#">Check it out</a>
+      </div>
+    </div>
+
+    <!-- END MAIN -->
+    <hr>
+    <h2 id="gallery">GALLERY</h2>
+    <p>I do a bit of drawing too, sometimes for comissions.</p>
+    <div class="card">
+
+      <div class="slideshow-container">
+        <div class="mySlides fade content">
+          <div class="numbertext">1 / 3</div>
+          <img src="./images/test.png" style="width:100%">
+          <div class="text">IMAGE 1</div>
+        </div>
+
+        <div class="mySlides fade content">
+          <div class="numbertext">2 / 3</div>
+          <img src="./images/test.png" style="width:100%">
+          <div class="text">IMAGE 2</div>
+        </div>
+
+        <div class="mySlides fade content">
+          <div class="numbertext">3 / 3</div>
+          <img src="./images/test.png" style="width:100%">
+          <div class="text">IMAGE 3</div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <hr>
+    <h2 id="skills">MY SKILLS</h2>
+    <div class="cards">
+      <div class="card">
+        <h3 class="center">Hardware Skills</h3>
+        <li>Hardware repairs</li>
+        <li>Issue detection and problem solving</li>
+        <li>Computer builing and upgrading</li>
+        <li>Expectional knowledge in computer software and hardware</li>
+        <li>Basic data recovery and backup skills</li>
+        <li>Techincal support</li>
+        <li>Resolving network connectivity issues</li>
+      </div>
+      <div class="card">
+        <h3 class="center">Programming Skills</h3>
+        <li>Python scripting</li>
+        <li>Basic Java programs</li>
+        <li>C# Programs with GUI</li>
+        <li>HTML development</li>
+        <li>CSS creation</li>
+        <li>Apache2 setup</li>
+        <li>MYSQL setup</li>
+      </div>
+      <div class="card">
+        <h3 class="center">TEMP</h3>
+        <li>LOREM</li>
+        <li>IPSUM</li>
+        <li>LOREM</li>
+        <li>IPSUM</li>
+        <li>LOREM</li>
+        <li>IPSUM</li>
+        <li>LOREM</li>
+        <li>IPSUM</li>
+      </div>
+    </div>
+    <hr>
+    <h2 id="contact">CONTACT</h2>
+    <p>Business Email: </p>
+    <p>Phone: </p>
+    <p></p>
+    <hr>
+    <h2 id="social">SOCIAL MEDIA</h2>
+    <hr>
+    <h2 id="other">OTHER THINGS</h2>
+    <hr>
+  </div>
+
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+
+  <script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+  </script>
+
+</body>
+</html>
