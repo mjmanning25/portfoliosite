@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Asteroids Game - Michael Manning</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="init.js"></script>
+<script src="objects.js"></script>
+<script src="misc.js"></script>
+<script src="gameloop.js"></script>
+<script src="draw.js"></script>
+<script src="keyboard.js"></script>
+<script src="update.js"></script>
+<script src="collisions.js"></script>
+<script src="states.js"></script>
+<link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' />
+
+<script>
+//[NOTE]------------------------------------------------------------------------
+//| All code contained within these files is my own and has been written soley	|
+//|	By me, Michael Manning. 													|
+//|-----------------------------------------------------------------------------
+
+//[Canvas variables]-----------------------------------------------------------
+var canvas,
+    ctx,
+	// width and height are used for setting the game screen size
+    width = 1200,
+    height = 600,
+	// red values for gameover screen
+	r = 255,
+	increase = false,
+	decrease = true,
+
+//[Asteroid variables / array]-------------------------------------------------
+    asteroids = [],
+    asteroidSpeed = 1,
+	timeBetweenAsts = 2000,
+	minTimeBetweenAsts = 500,
+	timeForNextAst= 0,
+	// these two variables are used to calculate accuracy, a score multiplier
+	asteroidsHit = 0,
+	lasersFired = 0,
+
+//[Pickup variables / array]----------------------------------------------------
+	pickups = [];
+	timeBetweenPickups = 10000;
+	timeForNextPickup = 0;
+	// only allow 5 pickups to be onscreen at once to reduce lag and make it easier to see
+	maxPickups = 5;
+
+//[Laser variables / array]----------------------------------------------------
+	laserTotal = 6,
+	laserSpeed = 5,
+	// this is a powerup that allow the game to fire lasers constantly when a key is toggled
+	autofireUnlocked = false,
+	autofire = false,
+    lasers = [];
+
+//[Direction booleans]---------------------------------------------------------
+    rightKey = false,
+    leftKey = false,
+    upKey = false,
+    downKey = false,
+
+//[Ship variables]-------------------------------------------------------------
+	ship_x = (width / 2) - 25,
+	ship_y = (height/2) - 80,
+	ship_w = 50,
+	ship_h = 50;
+	ship_speed = 8;
+	// health variables
+	sheild = 100;
+	health = 100;
+
+//[Game variables]-------------------------------------------------------------
+	// these are used to determine the current game state and are constantly checked
+	alive = false;
+	pause = false;
+	gameover = false;
+	// start on the menu screen
+	menu = true;
+	endScore = false;
+	options = false;
+
+//[Option screen variables]----------------------------------------------------
+	// these are used as buffers for option changes within the game, they are used to check to see if the input is valid
+	timeBetweenAstsEdit = "";
+	asteroidSpeedEdit = "";
+	lasterTotalEdit = "";
+	minTimeBetweenAstsEdit = "";
+
+//[Score variables]------------------------------------------------------------
+	score = 0;
+	highscore = 0;
+	name = "";
+	points_multiplier = 1;
+	// placeholder variable
+	accuracy = 0;
+	//placeholder variable
+	finalScore = 0;
+
+//[Load images for objects]----------------------------------------------------
+	var astimg = new Image();
+	astimg.src = 'asteroid.png';
+	var ship = new Image();
+	ship.src = 'ship.png';
+	var laserimg = new Image();
+	laserimg.src = 'bullet.png';
+	var sheildimg = new Image();
+	sheildimg.src = 'sheild.png';
+	var healthimg = new Image();
+	healthimg.src = 'health.png';
+	var autofireimg = new Image();
+	autofireimg.src = 'laser.png';
+
+//-----------------------------------------------------------------------------
+// load the init function when the page loads
+window.onload = init;
+</script>
+</head>
+
+<body>
+  <canvas id="canvas" width="1200" height="600"></canvas>
+  <br>
+  <p style="text-align:center;"><a href="../index.html">Back to mikex...</a></p>
+</body>
+</html>
