@@ -1,0 +1,39 @@
+nav ul{
+  float: left;
+
+}
+nav ul li{
+  float: left;
+  list-style: none;
+  position: relative;
+  padding: 25px;
+
+}
+
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 70px;
+  background-color: black;
+  color: green;
+}
+
+nav ul li {
+  padding: 30px;
+}
+p{
+  color: green;
+  background-color: black;
+}
+div {
+  color: green;
+  padding: 15px;
+  background-color: black;
+}
+/* not sure why the second half of the page (classes in pathway)in not showing changes*/
+div h2 {
+  color: green;
+  background-color: black;
+  padding: 15px;
+}

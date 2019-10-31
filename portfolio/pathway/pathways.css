@@ -1,0 +1,26 @@
+
+nav ul{
+  float: left;
+
+
+}
+
+nav ul li{
+  float: left;
+  list-style: none;
+  position: relative;
+  margin: 20px;
+
+}
+p{
+  color:green;
+  background-color: black;
+  font-size: 14px;
+  padding: 20px;
+}
+
+div {
+  color: green;
+  padding: 15px;
+  background-color: black;
+}

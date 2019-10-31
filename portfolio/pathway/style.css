@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+body {
+}
+ nav ul{
+   float: left;
+ }
+ nav ul li{
+   float: left;
+   list-style: none;
+   position: relative;
+ }
+nav ul li a{
+  display: block;
+  font-family: sans-serif;
+  color: white;
+  font-size: 14px;
+  padding: 0px 85px;
+  text-decoration: none;
+  text-align: center;
+
+}
+ h1{
+   font-family: sans-serif;
+   text-align: center;
+   padding-top: 40px;
+   padding-bottom: 70px;
+   color: green;
+}
+ h2,h3{
+  color: white;
+ }
+
+ul.courseSelections{
+color:white;
+}
+
+ul.courseSelections li{
+  background-color: gray;
+  width: 85%;
+  height: 50px;
+  line-height: 25px;
+  border-bottom: 1px solid #fff;
+  padding-left: 10px;
+  margin-left: 15px;
+    list-style: none;
+}
+ul.courseSelections li a{
+  font-family: sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+
+}
+
+ul.bachelors{}
+
+ul.bachelors li{
+
+}
