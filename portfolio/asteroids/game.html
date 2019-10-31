@@ -6,13 +6,13 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="init.js"></script>
 <script src="objects.js"></script>
-<script src="misc.js"></script>  
-<script src="gameloop.js"></script> 
-<script src="draw.js"></script> 
+<script src="misc.js"></script>
+<script src="gameloop.js"></script>
+<script src="draw.js"></script>
 <script src="keyboard.js"></script>
-<script src="update.js"></script> 
-<script src="collisions.js"></script> 
-<script src="states.js"></script> 
+<script src="update.js"></script>
+<script src="collisions.js"></script>
+<script src="states.js"></script>
 <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' />
 
 <script>
@@ -31,7 +31,7 @@ var canvas,
 	r = 255,
 	increase = false,
 	decrease = true,
-	
+
 //[Asteroid variables / array]-------------------------------------------------
     asteroids = [],
     asteroidSpeed = 1,
@@ -41,7 +41,7 @@ var canvas,
 	// these two variables are used to calculate accuracy, a score multiplier
 	asteroidsHit = 0,
 	lasersFired = 0,
-	
+
 //[Pickup variables / array]----------------------------------------------------
 	pickups = [];
 	timeBetweenPickups = 10000;
@@ -56,23 +56,23 @@ var canvas,
 	autofireUnlocked = false,
 	autofire = false,
     lasers = [];
-	
+
 //[Direction booleans]---------------------------------------------------------
     rightKey = false,
     leftKey = false,
     upKey = false,
     downKey = false,
-	
+
 //[Ship variables]-------------------------------------------------------------
-	ship_x = (width / 2) - 25, 
-	ship_y = (height/2) - 80, 
-	ship_w = 50, 
+	ship_x = (width / 2) - 25,
+	ship_y = (height/2) - 80,
+	ship_w = 50,
 	ship_h = 50;
 	ship_speed = 8;
 	// health variables
 	sheild = 100;
 	health = 100;
-	
+
 //[Game variables]-------------------------------------------------------------
 	// these are used to determine the current game state and are constantly checked
 	alive = false;
@@ -82,7 +82,7 @@ var canvas,
 	menu = true;
 	endScore = false;
 	options = false;
-	
+
 //[Option screen variables]----------------------------------------------------
 	// these are used as buffers for option changes within the game, they are used to check to see if the input is valid
 	timeBetweenAstsEdit = "";
@@ -99,9 +99,9 @@ var canvas,
 	accuracy = 0;
 	//placeholder variable
 	finalScore = 0;
-	
+
 //[Load images for objects]----------------------------------------------------
-	var astimg = new Image();	
+	var astimg = new Image();
 	astimg.src = 'asteroid.png';
 	var ship = new Image();
 	ship.src = 'ship.png';
@@ -123,6 +123,6 @@ window.onload = init;
 <body>
   <canvas id="canvas" width="1200" height="600"></canvas>
   <br>
-  <p style="text-align:center;"><a href="../things.html">Back to Projects...</a></p>
+  <p style="text-align:center;"><a href="../index.html">Back to mikex...</a></p>
 </body>
 </html>
