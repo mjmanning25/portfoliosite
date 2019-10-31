@@ -37,8 +37,12 @@ function index(){
         <h2>WIP FEATURES</h2>
         <div id="task">
           <ul>
-            <li>- Nothing Major</li>
+            <li>- Add tag system</li>
             <li>- Add undo feature</li>
+            <li>- Add delete button to finished tasks</li>
+            <li>- Add search bar for tasks</li>
+            <li>- Add user logins with independant tasks</li>
+            <li>- Remove filler tasks</li>
           </ul>
         </div>
       </div>
