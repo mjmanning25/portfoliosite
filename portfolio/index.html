@@ -11,7 +11,7 @@
 
   <!-- MAIN (Center website) -->
   <div class="main">
-    <h1>mikex.co.nz</h1>
+    <h1>MIKE-X</h1>
     <hr>
     <div class="topnav" id="myTopnav">
       <a href="#about" class="active">ABOUT</a>
@@ -194,62 +194,62 @@
     </div>
     <hr>
     <h2 id="contact">CONTACT.</h2>
-<pre>Business Email: "mjmanning25@hotmail.com";
-Mobile: "021 119 3313";</pre>
-    <hr>
-    <h2 id="social">SOCIAL MEDIA.</h2>
-<pre>Facebook: "Michael Manning";
-Twitter: "@SpeedyTheNerd";
-GitHub: "mjmanning25";
-LinkedIn: "michaelmanningnz";
-Reddit: "SpeedyTheNerd";
-Steam: "SpeedyTheNerd";
-Discord: "Speedy | (Michael)#0001";
-</pre>
-    <hr>
-    <h2 id="other">OTHER THINGS.</h2>
-    <hr>
-  </div>
+    <pre>Business Email: "mjmanning25@hotmail.com";
+      Mobile: "021 119 3313";</pre>
+      <hr>
+      <h2 id="social">SOCIAL MEDIA.</h2>
+      <pre>Facebook: "Michael Manning";
+        Twitter: "@SpeedyTheNerd";
+        GitHub: "mjmanning25";
+        LinkedIn: "michaelmanningnz";
+        Reddit: "SpeedyTheNerd";
+        Steam: "SpeedyTheNerd";
+        Discord: "Speedy | (Michael)#0001";
+      </pre>
+      <hr>
+      <h2 id="other">OTHER THINGS.</h2>
+      <hr>
+    </div>
 
-  <script>
-  function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
     }
-  }
-  </script>
+    </script>
 
-  <script>
-  var slideIndex = 1;
-  showSlides(slideIndex);
+    <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
 
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
     }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-  }
-  </script>
 
-</body>
-</html>
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+
+  </body>
+  </html>
