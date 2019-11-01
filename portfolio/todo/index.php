@@ -1,9 +1,10 @@
 <?php
 include "./xcommon.php";
 
-if (empty($_REQUEST['tag'])) {
-  $query = "SELECT * FROM tasks order by priority DESC, date DESC;";
-}else {
+if (empty($_REQUEST['tag'])) $query = "SELECT * FROM tasks order by priority DESC, date DESC;";
+}
+
+else {
   $t = $_REQUEST['tag'];
   $query = "SELECT * FROM tasks where tag=$t order by priority DESC, date DESC;";
 }
