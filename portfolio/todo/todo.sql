@@ -25,6 +25,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `tasks`
 --
+DROP TABLE tasks;
 
 CREATE TABLE IF NOT EXISTS `tasks` (
   `uid` int(11) NOT NULL,
@@ -32,22 +33,9 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `description` varchar(1000) NOT NULL,
   `date` datetime NOT NULL,
   `hide` tinyint(1) NOT NULL,
+  `tag` varchar(64) NOT NULL,
   `priority` tinyint(1) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tasks`
---
-
-INSERT INTO `tasks` (`uid`, `title`, `description`, `date`, `hide`, `priority`) VALUES
-(6, 'low', 'low test', '2019-09-13 18:24:28', 1, 0),
-(7, 'med', 'med test', '2019-09-13 18:24:37', 1, 1),
-(8, 'high', 'high test', '2019-09-13 18:24:53', 1, 2),
-(9, 'not hidden', 'dont click done', '2019-09-13 22:21:41', 1, 2),
-(10, 'test', 'asdf', '2019-09-13 22:27:41', 1, 2),
-(11, 'high', 'memes', '2019-09-13 22:42:03', 1, 2),
-(12, 'high', 'sghasd', '2019-09-13 23:18:37', 1, 2),
-(13, 'hello', 'test 1', '2019-09-14 10:34:54', 1, 2);
 
 --
 -- Indexes for dumped tables

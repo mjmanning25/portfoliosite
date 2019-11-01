@@ -45,6 +45,8 @@ function Todo($error){
 		<br>
 		<input name="priority" type="text" placeholder="Priority: 0, 1, 2" value="<?php echo $_REQUEST['priority']; ?>">
 		<br>
+		<input name="tag" type="text" placeholder="tag" value="<?php echo $_REQUEST['tag']; ?>">
+		<br>
 		<input type="submit">
 	</form>
 		<?php if ($error == 1) echo "\t\t<H4>Ooops.... Missing Title</H4>\n"; ?>
@@ -62,6 +64,7 @@ function xTodo(){
 		$title = $_REQUEST['title'];
 		$text = $_REQUEST['description'];
 		$priority = $_REQUEST['priority'];
+		$tag = $_REQUEST['tag'];
 		$hide = 0;
 
 		$sql = "INSERT INTO tasks SET ";
@@ -69,6 +72,7 @@ function xTodo(){
 		$sql .= "description = '".$text."', ";
 		$sql .= "date = now(), ";
 		$sql .= "hide = ".$hide.", ";
+		$sql .= "tag = ".$tag.", ";
 		$sql .= "priority = ".$priority.";";
 		mysqli_query($GLOBALS['conn'], $sql) or die(mysqli_error($GLOBALS['conn']));
 

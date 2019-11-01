@@ -1,6 +1,13 @@
 <?php
 include "./xcommon.php";
 
+if (empty($_REQUEST['go'])) {
+  $query = "SELECT * FROM tasks order by priority DESC, date DESC;";
+}else {
+  $go = $_REQUEST['go'];
+  $query = "SELECT * FROM tasks where tag=$go order by priority DESC, date DESC;";
+}
+
 if (empty($_REQUEST['i'])) $_REQUEST['i'] = '1';
 switch($_REQUEST['i'])
 {
@@ -45,6 +52,12 @@ function index(){
             <li>- Remove filler tasks</li>
           </ul>
         </div>
+      </div>
+      <div id="quote">
+        <form method="post" action="index.php?go">
+	      <input type="text" name="name">
+        <input type="submit" name="submit" value="Search">
+        </form>
       </div>
       <div id="quote">
         <a href="./todo.php"><h2>To do list - click me to add a new one</h2></a>
