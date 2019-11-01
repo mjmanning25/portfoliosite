@@ -45,7 +45,7 @@ function Todo($error){
 		<br>
 		<input name="priority" type="text" placeholder="Priority: 0, 1, 2" value="<?php echo $_REQUEST['priority']; ?>">
 		<br>
-		<input name="tag" type="text" placeholder="tag" value="<?php echo $_REQUEST['tag']; ?>">
+		<input name="tag" type="text" placeholder="Tag here" value="<?php echo $_REQUEST['tag']; ?>">
 		<br>
 		<input type="submit">
 	</form>

@@ -1,14 +1,6 @@
 <?php
 include "./xcommon.php";
 
-if (empty($_REQUEST['tag'])) $query = "SELECT * FROM tasks order by priority DESC, date DESC;";
-}
-
-else {
-  $t = $_REQUEST['tag'];
-  $query = "SELECT * FROM tasks where tag=$t order by priority DESC, date DESC;";
-}
-
 if (empty($_REQUEST['i'])) $_REQUEST['i'] = '1';
 switch($_REQUEST['i'])
 {
@@ -24,6 +16,14 @@ switch($_REQUEST['i'])
 }
 
 function index(){
+  if (empty($_REQUEST['tag'])){
+    $query = "SELECT * FROM tasks order by priority DESC, date DESC;";
+  }
+
+  else {
+    $t = $_REQUEST['tag'];
+    $query = "SELECT * FROM tasks where tag='$t' order by priority DESC, date DESC;";
+  }
   // get the list of non-hidden tasks
   $results = mysqli_query($GLOBALS['conn'], $query) or die(mysqli_error($GLOBALS['conn']));
   ?>
