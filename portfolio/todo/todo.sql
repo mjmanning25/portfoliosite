@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `description` varchar(1000) NOT NULL,
   `date` datetime NOT NULL,
   `hide` tinyint(1) NOT NULL,
-  `tag` varchar(64) NOT NULL,
+  `tag` varchar(64) NULL,
   `priority` tinyint(1) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 

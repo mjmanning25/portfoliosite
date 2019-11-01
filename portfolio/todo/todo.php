@@ -64,7 +64,7 @@ function xTodo(){
 		$title = $_REQUEST['title'];
 		$text = $_REQUEST['description'];
 		$priority = $_REQUEST['priority'];
-		$tag = $_REQUEST['tag'];
+		$t = $_REQUEST["tag"];
 		$hide = 0;
 
 		$sql = "INSERT INTO tasks SET ";
@@ -72,7 +72,7 @@ function xTodo(){
 		$sql .= "description = '".$text."', ";
 		$sql .= "date = now(), ";
 		$sql .= "hide = ".$hide.", ";
-		$sql .= "tag = ".$tag.", ";
+		$sql .= "tag = '".$t."', ";
 		$sql .= "priority = ".$priority.";";
 		mysqli_query($GLOBALS['conn'], $sql) or die(mysqli_error($GLOBALS['conn']));
 

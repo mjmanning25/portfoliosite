@@ -22,7 +22,7 @@ function index(){
 
   else {
     $t = $_REQUEST['tag'];
-    $query = "SELECT * FROM tasks where tag='$t' order by priority DESC, date DESC;";
+    $query = "SELECT * FROM tasks where tag like '$t' order by priority DESC, date DESC;";
   }
   // get the list of non-hidden tasks
   $results = mysqli_query($GLOBALS['conn'], $query) or die(mysqli_error($GLOBALS['conn']));
@@ -54,8 +54,8 @@ function index(){
         </div>
       </div>
       <div id="quote">
-        <form method="post" action="index.php">
-	      <input type="text" name="tag">
+        <form method="post" action="index.php?tag=<?php echo $t?>">
+	      <input type="text" placeholder="<?php echo $t ?>" name="tag">
         <input type="submit" name="submit" value="Search">
         </form>
       </div>
@@ -72,15 +72,22 @@ function index(){
             $text = $row_users['description'];
             $date = $row_users['date'];
             $hide = $row_users['hide'];
-            $priority = $row_users['priority']
+            $tag = $row_users['tag'];
+            $priority = $row_users['priority'];
           ?>
 
             <?php //if the result is not hidden
+
             if ($hide != 1) {
               // if high priority
               if ($priority == 2) {?>
                 <div id="taskhigh">
                   <h3><?php echo $title ?></h3>
+                  <?php if (empty($tag)) {
+                    echo "<h2>NO TAG DATA</h2>";
+                  }else{
+                    echo "<h2>$tag</h2>";
+                  }?>
                   <li><p><?php echo $text; ?></p></li>
                   <a href=<?php echo "./index.php?i=2&s=".$uid ?>>Done</a>
                 </div>
@@ -89,6 +96,11 @@ function index(){
                  elseif ($priority == 1) {?>
                   <div id="taskmed">
                     <h3><?php echo $title ?></h3>
+                    <?php if (empty($tag)) {
+                      echo "<h2>NO TAG DATA</h2>";
+                    }else{
+                      echo "<h2>$tag</h2>";
+                    }?>
                     <li><p><?php echo $text; ?></p></li>
                     <a href=<?php echo "./index.php?i=2&s=".$uid ?>>Done</a>
                   </div>
@@ -98,6 +110,11 @@ function index(){
                 else {?>
                   <div id="tasklow">
                     <h3><?php echo $title ?></h3>
+                    <?php if (empty($tag)) {
+                      echo "<h2>NO TAG DATA</h2>";
+                    }else{
+                      echo "<h2>$tag</h2>";
+                    }?>
                     <li><p><?php echo $text; ?></p></li>
                     <a href=<?php echo "./index.php?i=2&s=".$uid ?>>Done</a>
                   </div>
@@ -134,11 +151,17 @@ function index(){
               $title = $row_users['title'];
               $text = $row_users['description'];
               $hide = $row_users['hide'];
+              $tag = $row_users['tag'];
               //if the record is set to hiden, display it here
               if ($hide != 0) {
                 ?>
                 <div id="task">
                   <h3><?php echo $title ?></h3>
+                  <?php if (empty($tag)) {
+                    echo "<h2>NO TAG DATA</h2>";
+                  }else{
+                    echo "<h2>$tag</h2>";
+                  }?>
                   <li><p><?php echo $text; ?></p></li>
                 </div>
                 <?php
