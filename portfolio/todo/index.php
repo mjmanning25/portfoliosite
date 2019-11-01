@@ -55,12 +55,15 @@ function index(){
       </div>
       <div id="quote">
         <form method="post" action="index.php?tag=<?php echo $t?>">
+        <a href="./todo.php"><h2>To do list - click me to add a new one</h2></a>
+        <p>To clear your search: clear this box and press ENTER.</p>
+        <p>This is a WIP feature, please be nice.</p>
 	      <input type="text" placeholder="<?php echo $t ?>" name="tag">
         <input type="submit" name="submit" value="Search">
         </form>
       </div>
       <div id="quote">
-        <a href="./todo.php"><h2>To do list - click me to add a new one</h2></a>
+        <h2>To Be Completed</h2>
         <ul>
           <?php
 
