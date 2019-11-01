@@ -1,11 +1,11 @@
 <?php
 include "./xcommon.php";
 
-if (empty($_REQUEST['go'])) {
+if (empty($_REQUEST['tag'])) {
   $query = "SELECT * FROM tasks order by priority DESC, date DESC;";
 }else {
-  $go = $_REQUEST['go'];
-  $query = "SELECT * FROM tasks where tag=$go order by priority DESC, date DESC;";
+  $t = $_REQUEST['tag'];
+  $query = "SELECT * FROM tasks where tag=$t order by priority DESC, date DESC;";
 }
 
 if (empty($_REQUEST['i'])) $_REQUEST['i'] = '1';
@@ -24,7 +24,6 @@ switch($_REQUEST['i'])
 
 function index(){
   // get the list of non-hidden tasks
-  $query = "SELECT * FROM tasks order by priority DESC, date DESC;";
   $results = mysqli_query($GLOBALS['conn'], $query) or die(mysqli_error($GLOBALS['conn']));
   ?>
 
@@ -54,8 +53,8 @@ function index(){
         </div>
       </div>
       <div id="quote">
-        <form method="post" action="index.php?go">
-	      <input type="text" name="name">
+        <form method="post" action="index.php">
+	      <input type="text" name="tag">
         <input type="submit" name="submit" value="Search">
         </form>
       </div>
