@@ -29,6 +29,7 @@ DROP TABLE tasks;
 
 CREATE TABLE IF NOT EXISTS `tasks` (
   `uid` int(11) NOT NULL,
+  `user` varchar(64) NOT NULL,
   `title` varchar(64) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `date` datetime NOT NULL,

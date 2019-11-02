@@ -21,7 +21,7 @@ switch($_REQUEST['i'])
 function xLogin($user, $pass){
 	$_SESSION['cnt']++;
 
-	if ($_SESSION['cnt'] < 5 and strlen($user) < 17){
+	if ($_SESSION['cnt'] < 5){
 
 		if (empty($user) or empty($pass)){
 			header("location: ./login.php?i=2"); // no data submitted
@@ -50,7 +50,7 @@ function xLogin($user, $pass){
 	}
 
 	else {
-  	header("location: ./login.php?i=3"); // too many attempts
+  	header("location: ./login.php?i=2"); // too many attempts
 	}
 }
 

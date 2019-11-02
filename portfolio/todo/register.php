@@ -36,22 +36,27 @@ function Signup($error){
   <body>
   <div id="main">
     <h1>Tag-Do Register</h1>
-    <p>Please login to continue</p>
+    <p>Please register to continue</p>
 
       <div id="quote">
         <form action="./register.php?i=2" method="post">
             <input autofocus type="text" name="un" placeholder="Username" value="<?php echo $_REQUEST['un']; ?>">
             <input type="password" name="pw" placeholder="Password" value="<?php echo $_REQUEST['pw']; ?>">
+			<input type="password" name="pw2" placeholder="Verify Password" value="<?php echo $_REQUEST['pw2']; ?>">
             <input type="submit" name="submit" value="Sign Up">
+			<p>Already a memeber? | Click <a href="./login.php">here</a> to Login</p>
         </form>
 	<?php
-    if ($error == 1) echo "\t\t<H4>Ooops.... Missing Username or Password</H4>\n"; ?>
-<?php
+    if ($error == 1) echo "<p>Ooops.... Missing Username or Password</p>";
+	if ($error == 2) echo "<p>Ooops.... Make sure your passwords match!</p>";
 }
 
 //*****************************************************************************
 function xSignup(){
 	if(empty($_REQUEST['un']) or empty($_REQUEST['pw'])) Signup(1);
+	if ($_REQUEST['pw'] != $_REQUEST['pw2']) {
+		Signup(2);
+	}
 	else{
 		$alevel = 1;
 		$sessionid = '';

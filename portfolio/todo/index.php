@@ -101,6 +101,7 @@ function index(){
                 <form method="post" action="index.php?tag=<?php echo $t?>">
                     <p>To clear your search: clear this box and press ENTER.</p>
                     <p>This is a WIP feature, please be nice.</p>
+                    <a href="./xlogin.php?i=2">TEMP LOGOUT</a>
                     <input type="text" placeholder="<?php echo $t ?>" name="tag">
                     <input type="submit" name="submit" value="Search">
                 </form>
