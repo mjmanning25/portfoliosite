@@ -36,6 +36,9 @@ function Todo($error){
 	</head>
 	<body>
 <div id="main">
+	<div id="quote">
+
+
 	<form action="./todo.php?i=2" method="POST">
 		<h1>Todo List Updater</h1>
 		<p>Please fill in all boxes</p>
@@ -52,7 +55,7 @@ function Todo($error){
 		<?php if ($error == 1) echo "\t\t<H4>Ooops.... Missing Title</H4>\n"; ?>
 		<?php if ($error == 2) echo "\t\t<H4>Ooops.... Missing Content</H4>\n"; ?>
 <?php
-	echo "</div></body>";
+	echo "</div></div></body>";
 	echo "</html>";
 }
 

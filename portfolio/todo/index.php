@@ -22,7 +22,7 @@ function index(){
 
   else {
     $t = $_REQUEST['tag'];
-    $query = "SELECT * FROM tasks where tag like '$t' order by priority DESC, date DESC;";
+    $query = "SELECT * FROM tasks where tag='$t' order by priority DESC, date DESC;";
   }
   // get the list of non-hidden tasks
   $results = mysqli_query($GLOBALS['conn'], $query) or die(mysqli_error($GLOBALS['conn']));
@@ -44,10 +44,8 @@ function index(){
         <h2>WIP FEATURES</h2>
         <div id="task">
           <ul>
-            <li>- Add tag system</li>
             <li>- Add undo feature</li>
             <li>- Add delete button to finished tasks</li>
-            <li>- Add search bar for tasks</li>
             <li>- Add user logins with independant tasks</li>
             <li>- Remove filler tasks</li>
           </ul>
@@ -87,9 +85,9 @@ function index(){
                 <div id="taskhigh">
                   <h3><?php echo $title ?></h3>
                   <?php if (empty($tag)) {
-                    echo "<h2>NO TAG DATA</h2>";
+                    echo "<h3>NO TAG DATA</h3>";
                   }else{
-                    echo "<h2>$tag</h2>";
+                    echo "<h3>$tag</h3>";
                   }?>
                   <li><p><?php echo $text; ?></p></li>
                   <a href=<?php echo "./index.php?i=2&s=".$uid ?>>Done</a>
@@ -100,9 +98,9 @@ function index(){
                   <div id="taskmed">
                     <h3><?php echo $title ?></h3>
                     <?php if (empty($tag)) {
-                      echo "<h2>NO TAG DATA</h2>";
+                      echo "<h3>NO TAG DATA</h3>";
                     }else{
-                      echo "<h2>$tag</h2>";
+                      echo "<h3>$tag</h3>";
                     }?>
                     <li><p><?php echo $text; ?></p></li>
                     <a href=<?php echo "./index.php?i=2&s=".$uid ?>>Done</a>
@@ -114,9 +112,9 @@ function index(){
                   <div id="tasklow">
                     <h3><?php echo $title ?></h3>
                     <?php if (empty($tag)) {
-                      echo "<h2>NO TAG DATA</h2>";
+                      echo "<h3>NO TAG DATA</h3>";
                     }else{
-                      echo "<h2>$tag</h2>";
+                      echo "<h3>$tag</h3>";
                     }?>
                     <li><p><?php echo $text; ?></p></li>
                     <a href=<?php echo "./index.php?i=2&s=".$uid ?>>Done</a>
@@ -141,7 +139,7 @@ function index(){
           </ul>
         </div>
         <div id="quote">
-          <h2>Completed tasks</h2>
+          <h2>Completed Tasks</h2>
           <ul>
             <?php
 
@@ -161,9 +159,9 @@ function index(){
                 <div id="task">
                   <h3><?php echo $title ?></h3>
                   <?php if (empty($tag)) {
-                    echo "<h2>NO TAG DATA</h2>";
+                    echo "<h3>NO TAG DATA</h3>";
                   }else{
-                    echo "<h2>$tag</h2>";
+                    echo "<h3>$tag</h3>";
                   }?>
                   <li><p><?php echo $text; ?></p></li>
                 </div>
