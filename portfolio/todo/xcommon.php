@@ -1,7 +1,6 @@
 <?php
 	session_start();
-// Basic security
-//if (empty($_SESSION['alevel']) or ($_SESSION['alevel'] == 0)) header("location:./index.php?i=2");
+if (empty($_SESSION['alevel']) or ($_SESSION['alevel'] == 0)) header("location:./login.php?e=2");
     date_default_timezone_set('Pacific/Auckland');
 	$GLOBALS['conn'] = mysqli_connect("localhost", "fred", "20Triangle", "testing");
 	// error handler, remove the connect_error before release!!!
