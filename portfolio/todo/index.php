@@ -63,45 +63,44 @@ function Priorities($rec, $style)
 
 function index(){
     if (empty($_REQUEST['tag'])){
-        $query = "SELECT * FROM tasks where hide=0 order by priority DESC, date DESC;";
+        $query = "SELECT * FROM tasks where hide=0 and user=".$_SESSION['uid']." order by priority DESC, date DESC;";
     }
 
     else {
         $t = $_REQUEST['tag'];
-        $query = "SELECT * FROM tasks where hide=0 and tag='$t' order by priority DESC, date DESC;";
+        $query = "SELECT * FROM tasks where hide=0 and user=".$_SESSION['uid']." and tag='$t' order by priority DESC, date DESC;";
     }
 
     // get the list of non-hidden tasks
     $results = mysqli_query($GLOBALS['conn'], $query) or die(mysqli_error($GLOBALS['conn']));
+    $numrows = mysqli_num_rows($results);
     ?>
 
     <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="./help.css">
-        <title>Index</title>
+        <title>Tag-Do - Tasks</title>
     </head>
 
     <body>
         <div id="main">
-            <h1>IN DEVELOPMENT!</h1>
-            <small>Feel free to explore, but if you found this on accident please be nice. This is a test project!</small>
+            <h1>Tag-Do</h1>
+            <p>A to-do list project with a twist! Currently in BETA.</p>
+            <small>Created by Michael Manning</small>
             <br>
 
             <div id="quote">
-                <h2>WIP FEATURES</h2>
+                <h2>You are currently logged in as user: <?php echo $_SESSION['username']; ?></h2>
                 <div id="task">
-                    <ul>
-                        <li>- Add user logins with independant tasks</li>
-                    </ul>
+                    <p>You have <?php echo $numrows ?> un-completed tasks.</p>
+                    <a href="./xlogin.php?i=2">LOGOUT</a>
                 </div>
             </div>
 
             <div id="quote">
                 <form method="post" action="index.php?tag=<?php echo $t?>">
-                    <p>To clear your search: clear this box and press ENTER.</p>
-                    <p>This is a WIP feature, please be nice.</p>
-                    <a href="./xlogin.php?i=2">TEMP LOGOUT</a>
+                    <h2>To clear your search: clear this box and press ENTER.</h2>
                     <input type="text" placeholder="<?php echo $t ?>" name="tag">
                     <input type="submit" name="submit" value="Search">
                 </form>

@@ -39,6 +39,7 @@ function xLogin($user, $pass){
 			if (mysqli_num_rows($result) > 0){
 				$_SESSION['alevel'] = $row_users['alevel'];
 				$_SESSION['uid'] = $row_users['uid'];
+                $_SESSION['username'] = $row_users['un'];
 				$_SESSION['cnt'] = 0;
 				header("location: ./index.php"); // success
 			}

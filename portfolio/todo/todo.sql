@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `tasks`
 --
-DROP TABLE tasks;
+DROP TABLE IF EXISTS tasks;
 
 CREATE TABLE IF NOT EXISTS `tasks` (
   `uid` int(11) NOT NULL,
