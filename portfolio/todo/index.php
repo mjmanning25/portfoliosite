@@ -135,9 +135,9 @@ function index(){
 
             <div id="quote">
                 <h2>Completed Tasks</h2>
-                <div id="taskhigh">
-                    <h3><a class="RED" href="./index.php?i=5">DELETE ALL COMPLETED</a></h3>
-                </div>
+                <form id="delete" action="./index.php?i=5" method="post">
+                    <input type="submit" name="submit" value="DELETE ALL COMPLETED">
+                </form>
                 <ul>
                     <?php
                     //find all records that have been hidden
