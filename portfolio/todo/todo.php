@@ -42,7 +42,6 @@ function Todo($error){
 				<form action="./todo.php?i=2" method="POST">
 					<h1>Todo List Updater</h1>
 					<p>Please fill in all boxes</p>
-					<?php echo "<p>USER ID = ".$_SESSION['uid']."</p>" ?> 
 					<input name="title" type="text" placeholder="Title" value="<?php echo $_REQUEST['title']; ?>">
 					<input name="description" type="text" placeholder="Thing to do" value="<?php echo $_REQUEST['description']; ?>">
 					<input name="priority" type="text" placeholder="Priority: 1, 2, 3" value="<?php echo $_REQUEST['priority']; ?>">
