@@ -25,6 +25,8 @@ function Todo($error){
 	{
 		$_REQUEST['title'] = "";
 		$_REQUEST['description'] = "";
+		$_REQUEST['priority'] = "";
+		$_REQUEST['tag'] = "";
 	}
 	?>
 
@@ -46,14 +48,20 @@ function Todo($error){
 		<br>
 		<input name="description" type="text" placeholder="Thing to do" value="<?php echo $_REQUEST['description']; ?>">
 		<br>
-		<input name="priority" type="text" placeholder="Priority: 0, 1, 2" value="<?php echo $_REQUEST['priority']; ?>">
+		<input name="priority" type="text" placeholder="Priority: 1, 2, 3" value="<?php echo $_REQUEST['priority']; ?>">
 		<br>
 		<input name="tag" type="text" placeholder="Tag here" value="<?php echo $_REQUEST['tag']; ?>">
 		<br>
-		<input type="submit">
+		<input type="submit" name="submit" value="Add Task">
+	</form>
+	<hr>
+	<form  action="./index.php" method="post">
+		<input type="submit" name="submit" value="Back To Task List">
 	</form>
 		<?php if ($error == 1) echo "\t\t<H4>Ooops.... Missing Title</H4>\n"; ?>
 		<?php if ($error == 2) echo "\t\t<H4>Ooops.... Missing Content</H4>\n"; ?>
+		<?php if ($error == 3) echo "\t\t<H4>Ooops.... Missing Priority</H4>\n"; ?>
+		<?php if ($error == 4) echo "\t\t<H4>Ooops.... Missing Tag</H4>\n"; ?>
 <?php
 	echo "</div></div></body>";
 	echo "</html>";
@@ -63,6 +71,8 @@ function Todo($error){
 function xTodo(){
 	if(empty($_REQUEST['title'])) Todo(1);
 	elseif(empty($_REQUEST['description'])) Todo(2);
+	elseif(empty($_REQUEST['priority'])) Todo(3);
+	elseif(empty($_REQUEST['tag'])) Todo(4);
 	else{
 		$title = $_REQUEST['title'];
 		$text = $_REQUEST['description'];
