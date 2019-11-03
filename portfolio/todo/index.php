@@ -1,6 +1,8 @@
 <?php
 include "./xcommon.php";
 
+security();
+
 if (empty($_REQUEST['i'])) $_REQUEST['i'] = '1';
 switch($_REQUEST['i'])
 {
@@ -96,17 +98,17 @@ function index(){
                     <p>You have <?php echo $numrows ?> un-completed tasks.</p>
                     <a href="./xlogin.php?i=2">LOGOUT</a>
                 </div>
+                <hr>
+                <form action="./todo.php" method="post">
+                    <input type="submit" name="submit" value="Add A New Task">
+                </form>
             </div>
 
             <div id="quote">
                 <form method="post" action="index.php?tag=<?php echo $t?>">
                     <h2>To clear your search: clear this box and press ENTER.</h2>
-                    <input type="text" placeholder="<?php echo $t ?>" name="tag">
+                    <input type="text" value="<?php echo $t ?>" placeholder="Search for a Tag" name="tag">
                     <input type="submit" name="submit" value="Search">
-                </form>
-                <hr>
-                <form action="./todo.php" method="post">
-                    <input type="submit" name="submit" value="Add A New Task">
                 </form>
             </div>
 
@@ -142,12 +144,12 @@ function index(){
                     <?php
                     //find all records that have been hidden
                     if (empty($_REQUEST['tag'])){
-                        $query2 = "SELECT * FROM tasks where hide=1 order by priority DESC, date DESC;";
+                        $query2 = "SELECT * FROM tasks where hide=1 and user=".$_SESSION['uid']." order by priority DESC, date DESC;";
                     }
 
                     else {
                         $t = $_REQUEST['tag'];
-                        $query2 = "SELECT * FROM tasks where hide=1 and tag='$t' order by priority DESC, date DESC;";
+                        $query2 = "SELECT * FROM tasks where hide=1 and tag='$t' and user=".$_SESSION['uid']." order by priority DESC, date DESC;";
                     }
 
                     $resultshide = mysqli_query($GLOBALS['conn'], $query2) or die(mysqli_error($GLOBALS['conn']));
@@ -178,24 +180,24 @@ function index(){
 
 //logic to hide the items
 function xhide($u){
-    $sql = "UPDATE tasks SET hide=1 WHERE uid=".$u.";";
+    $sql = "UPDATE tasks SET hide=1 WHERE user=".$_SESSION['uid']." and uid=".$u.";";
     mysqli_query($GLOBALS['conn'], $sql) or die(mysqli_error($GLOBALS['conn']));
     header("location: ./index.php");
 }
 
 function xunhide($u){
-    $sql = "UPDATE tasks SET hide=0 WHERE uid=".$u.";";
+    $sql = "UPDATE tasks SET hide=0 WHERE user=".$_SESSION['uid']." and uid=".$u.";";
     mysqli_query($GLOBALS['conn'], $sql) or die(mysqli_error($GLOBALS['conn']));
     header("location: ./index.php");
 }
 
 function xdelete($u){
-    $sql = "delete from tasks WHERE uid=".$u.";";
+    $sql = "delete from tasks WHERE user=".$_SESSION['uid']." and uid=".$u.";";
     mysqli_query($GLOBALS['conn'], $sql) or die(mysqli_error($GLOBALS['conn']));
     header("location: ./index.php");
 }
 function xdeleteall(){
-    $sql = "delete from tasks where hide=1;";
+    $sql = "delete from tasks where hide=1 and user=".$_SESSION['uid'].";";
     mysqli_query($GLOBALS['conn'], $sql) or die(mysqli_error($GLOBALS['conn']));
     header("location: ./index.php");
 }

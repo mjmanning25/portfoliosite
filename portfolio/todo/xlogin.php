@@ -3,6 +3,8 @@ include "./xcommon.php";
 
 if (empty($_SESSION['cnt'])) $_SESSION['cnt'] = 0;
 
+if (empty($_SESSION['login'])) $_SESSION['login'] = 1;
+
 if (empty($_REQUEST['i'])) $_REQUEST['i'] = '1';
 
 switch($_REQUEST['i'])

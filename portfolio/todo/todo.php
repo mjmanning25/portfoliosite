@@ -1,11 +1,7 @@
 <?php
-//security is MAJORLY IMPORTANT here
-//-------------------------------------
-//first, check the users alevel
-//secondly, check the session is active
-//possibly more to come
-//---------------------------------------
 include "./xcommon.php";
+
+security();
 
 if (empty($_REQUEST['i'])) $_REQUEST['i'] = '1';
 switch($_REQUEST['i'])

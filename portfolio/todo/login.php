@@ -37,7 +37,7 @@ function Login($error){
             <input autofocus type="text" name="un" placeholder="Username">
             <input type="password" name="pw" placeholder="Password">
             <input type="submit" name="submit" value="Login">
-            <p>Not a memeber? | Click <a href="./register.php">here</a> to Register</p>
+            <p>Not a member? | Click <a href="./register.php">here</a> to Register</p>
         </form>
     <?php
     if($error == 2){
