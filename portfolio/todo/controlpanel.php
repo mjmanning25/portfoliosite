@@ -59,16 +59,16 @@ function Priorities($rec, $style)
     else echo "<h3>#$tag</h3>";
 
     // show the username of the person who posted the task
-    echo "<p>USER: ".getUserName($user)."</p>";
+    echo "<p>USER: ".getUserName($_SESSION['uid'])."</p>";
     echo "<p>$text</p>";
 
     // if the record is un-completed display the right button
     if ($style == 1) {
-        echo "<a href='./controlpanel.php?i=2&s=$uid'>COMPLETE</a>";
+        echo "<a class='button5' href='./controlpanel.php?i=2&s=$uid'>COMPLETE</a>";
     }else {
-        echo "<a href='./controlpanel.php?i=3&s=$uid'>UNDO</a>";
+        echo "<a class='button5' href='./controlpanel.php?i=3&s=$uid'>UNDO</a>";
         echo "<br>";
-        echo "<a href='./controlpanel.php?i=4&s=$uid'>DELETE</a>";
+        echo "<a class='button5' href='./controlpanel.php?i=4&s=$uid'>DELETE</a>";
     }
     echo "</div>";
 }
@@ -107,13 +107,11 @@ function index(){
                 <h2>You are currently logged in as user: <?php echo $_SESSION['username']; ?></h2>
                 <div id="task">
                     <p>There are <?php echo $numrows ?> un-completed tasks globally.</p>
-                    <a href="./xlogin.php?i=2">LOGOUT</a>
+                    <a class='button5' href="./xlogin.php?i=2">LOGOUT</a>
                 </div>
                 <div id="task">
                     <p>List of all users:</p>
-                    <ul>
-                        <?php getAllUsers();?>
-                    </ul>
+                    <?php getAllUsers();?>
                 </div>
                 <form id="delete" action="./controlpanel.php?i=5" method="post">
                     <input type="submit" name="submit" value="PURGE ALL TASKS">
@@ -121,8 +119,15 @@ function index(){
             </div>
 
             <div id="quote">
-                <form method="post" action="controlpanel.php?tag=<?php echo $t?>">
-                    <h2>To clear your search: clear this box and press ENTER.</h2>
+                <h2>To clear your search: clear this box and press ENTER.</h2>
+                <div id="task">
+                    <p>Your tags:</p>
+                    <ul>
+                        <?php getUserTags($_SESSION['uid']);?>
+                    </ul>
+                </div>
+                <hr>
+                <form method="post" action="index.php?tag=<?php echo $t?>">
                     <input type="text" value="<?php echo $t ?>" placeholder="Search for a Tag" name="tag">
                     <input type="submit" name="submit" value="Search">
                 </form>

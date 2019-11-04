@@ -35,6 +35,7 @@ function Priorities($rec, $style)
 {
     $uid = $rec['uid'];
     $title = $rec['title'];
+    $user = $rec['user'];
     $text = $rec['description'];
     $tag = $rec['tag'];
 
@@ -54,11 +55,11 @@ function Priorities($rec, $style)
 
     echo "<p>$text</p>";
     if ($style == 1) {
-        echo "<a href='./index.php?i=2&s=$uid'>COMPLETE</a>";
+        echo "<a class='button5' href='./index.php?i=2&s=$uid'>COMPLETE</a>";
     }else {
-        echo "<a href='./index.php?i=3&s=$uid'>UNDO</a>";
+        echo "<a class='button5' href='./index.php?i=3&s=$uid'>UNDO</a>";
         echo "<br>";
-        echo "<a href='./index.php?i=4&s=$uid'>DELETE</a>";
+        echo "<a class='button5' href='./index.php?i=4&s=$uid'>DELETE</a>";
     }
     echo "</div>";
 }
@@ -96,7 +97,7 @@ function index(){
                 <h2>You are currently logged in as user: <?php echo $_SESSION['username']; ?></h2>
                 <div id="task">
                     <p>You have <?php echo $numrows ?> un-completed tasks.</p>
-                    <a href="./xlogin.php?i=2">LOGOUT</a>
+                    <a class="button5" href="./xlogin.php?i=2">LOGOUT</a>
                 </div>
                 <hr>
                 <form action="./todo.php" method="post">
@@ -105,8 +106,13 @@ function index(){
             </div>
 
             <div id="quote">
+                <h2>To clear your search: clear this box and press ENTER.</h2>
+                <div id="task">
+                    <p>Your tags:</p>
+                    <?php getUserTags($_SESSION['uid']);?>
+                </div>
+                <hr>
                 <form method="post" action="index.php?tag=<?php echo $t?>">
-                    <h2>To clear your search: clear this box and press ENTER.</h2>
                     <input type="text" value="<?php echo $t ?>" placeholder="Search for a Tag" name="tag">
                     <input type="submit" name="submit" value="Search">
                 </form>

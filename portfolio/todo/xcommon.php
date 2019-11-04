@@ -35,3 +35,15 @@ function getUserName($x){
     }
     return($usrname);
 }
+
+function getUserTags($x){
+	$getuserquery = "SELECT DISTINCT tag FROM tasks where user='$x';";
+	$gur = mysqli_query($GLOBALS['conn'], $getuserquery) or die(mysqli_error($GLOBALS['conn']));
+	while ($usr = mysqli_fetch_array($gur)){
+        $z = $usr['tag'];
+		echo "<a class='button5' href='./index.php?tag=$z'>#$z</a>";
+    }
+	if (mysqli_num_rows($gur) == 0) {
+		echo "<p>NO TAGS</p>";
+	}
+}
