@@ -136,56 +136,58 @@ function index(){
             <div id="quote">
                 <h2>To Be Completed</h2>
                 <ul>
-                    <?php
-                    //if there is a result, print it
-                    while ($rec = mysqli_fetch_array($results))
-                    {
-                        Priorities($rec, 1);
-                    }
-
-                    // if the query fails
-                    if (mysqli_num_rows($results) == 0) {
-                        ?>
-                        <div id="task">
-                            <p>NO TASKS</p>
-                        </div>
+                    <div class="cards">
                         <?php
-                    }
-                    ?>
+                        //if there is a result, print it
+                        while ($rec = mysqli_fetch_array($results))
+                        {
+                            Priorities($rec, 1);
+                        }
 
+                        // if the query fails
+                        if (mysqli_num_rows($results) == 0) {
+                            ?>
+                            <div id="task">
+                                <p>NO TASKS</p>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </ul>
             </div>
 
             <div id="quote">
                 <h2>Completed Tasks</h2>
                 <ul>
-                    <?php
-                    //find all records that have been hidden
-                    if (empty($_REQUEST['tag'])){
-                        $query2 = "SELECT * FROM tasks where hide=1 and user=".$_SESSION['uid']." order by priority DESC, date DESC;";
-                    }
-                    // if the user is doign a search, show searched and completed tasks
-                    else {
-                        $t = $_REQUEST['tag'];
-                        $query2 = "SELECT * FROM tasks where hide=1 and tag='$t' and user=".$_SESSION['uid']." order by priority DESC, date DESC;";
-                    }
-
-                    // query the db for completed tasks
-                    $resultshide = mysqli_query($GLOBALS['conn'], $query2) or die(mysqli_error($GLOBALS['conn']));
-                    while ($rec = mysqli_fetch_array($resultshide))
-                    {
-                        Priorities($rec, 0);
-                    }
-                    //if there are no records in the database, print NO TASKS
-                    if (mysqli_num_rows($resultshide) == 0) {
-                        ?>
-                        <div id="task">
-                            <p>NO TASKS</p>
-                        </div>
+                    <div class="cards">
                         <?php
-                    }
-                    ?>
+                        //find all records that have been hidden
+                        if (empty($_REQUEST['tag'])){
+                            $query2 = "SELECT * FROM tasks where hide=1 and user=".$_SESSION['uid']." order by priority DESC, date DESC;";
+                        }
+                        // if the user is doign a search, show searched and completed tasks
+                        else {
+                            $t = $_REQUEST['tag'];
+                            $query2 = "SELECT * FROM tasks where hide=1 and tag='$t' and user=".$_SESSION['uid']." order by priority DESC, date DESC;";
+                        }
 
+                        // query the db for completed tasks
+                        $resultshide = mysqli_query($GLOBALS['conn'], $query2) or die(mysqli_error($GLOBALS['conn']));
+                        while ($rec = mysqli_fetch_array($resultshide))
+                        {
+                            Priorities($rec, 0);
+                        }
+                        //if there are no records in the database, print NO TASKS
+                        if (mysqli_num_rows($resultshide) == 0) {
+                            ?>
+                            <div id="task">
+                                <p>NO TASKS</p>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </ul>
             </div>
         </div>
