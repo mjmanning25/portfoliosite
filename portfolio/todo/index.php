@@ -44,7 +44,7 @@ function Priorities($rec, $style)
         elseif ($rec['priority'] == 2) $sid = "taskmed";
         else $sid = "tasklow";
     } else {
-        $sid ="task";
+        $sid ="taskdone";
     }
 
     echo "<div id='".$sid."'>";
@@ -54,6 +54,7 @@ function Priorities($rec, $style)
     else echo "<h3>#$tag</h3>";
 
     echo "<p>$text</p>";
+    echo "<div class='clickable'>";
     if ($style == 1) {
         echo "<a class='button5' href='./index.php?i=2&s=$uid'>COMPLETE</a>";
     }else {
@@ -61,7 +62,7 @@ function Priorities($rec, $style)
         echo "<br>";
         echo "<a class='button5' href='./index.php?i=4&s=$uid'>DELETE</a>";
     }
-    echo "</div>";
+    echo "</div></div>";
 }
 
 function index(){

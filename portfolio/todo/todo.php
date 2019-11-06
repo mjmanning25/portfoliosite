@@ -29,18 +29,23 @@ function Todo($error){
 	<html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title>Add Todo</title>
+		<title>Tag-Do - Add New</title>
 		<link rel="stylesheet" type="text/css" href="./help.css">
 	</head>
 	<body>
 		<div id="main">
 			<div id="quote">
-				<form action="./todo.php?i=2" method="POST">
-					<h1>Todo List Updater</h1>
-					<p>Please fill in all boxes</p>
+				<form action="./todo.php?i=2" method="POST" id='asdf'>
+					<h1>Tag-Do - Add New Task</h1>
+					<p>Please fill in all boxes below</p>
 					<input name="title" type="text" placeholder="Title" value="<?php echo $_REQUEST['title']; ?>">
-					<input name="description" type="text" placeholder="Thing to do" value="<?php echo $_REQUEST['description']; ?>">
-					<input name="priority" type="text" placeholder="Priority: 1, 2, 3" value="<?php echo $_REQUEST['priority']; ?>">
+					<textarea name="description" form="asdf" placeholder="Description..."></textarea>
+					<p>Priority:</p>
+					<select name="priority">
+					  <option value="3">High</option>
+					  <option value="2">Medium</option>
+					  <option value="1">Low</option>
+					</select>
 					<input name="tag" type="text" placeholder="Tag here" value="<?php echo $_REQUEST['tag']; ?>">
 					<input type="submit" name="submit" value="Add Task">
 				</form>

@@ -61,6 +61,7 @@ function Priorities($rec, $style)
     // show the username of the person who posted the task
     echo "<p>USER: ".getUserName($_SESSION['uid'])."</p>";
     echo "<p>$text</p>";
+    echo "<div class='clickable'>";
 
     // if the record is un-completed display the right button
     if ($style == 1) {
@@ -70,7 +71,7 @@ function Priorities($rec, $style)
         echo "<br>";
         echo "<a class='button5' href='./controlpanel.php?i=4&s=$uid'>DELETE</a>";
     }
-    echo "</div>";
+    echo "</div></div>";
 }
 
 function index(){
@@ -127,7 +128,7 @@ function index(){
                     </ul>
                 </div>
                 <hr>
-                <form method="post" action="index.php?tag=<?php echo $t?>">
+                <form method="post" action="controlpanel.php?tag=<?php echo $t?>">
                     <input type="text" value="<?php echo $t ?>" placeholder="Search for a Tag" name="tag">
                     <input type="submit" name="submit" value="Search">
                 </form>
