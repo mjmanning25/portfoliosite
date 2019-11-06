@@ -61,6 +61,8 @@ function Priorities($rec, $style)
     // show the username of the person who posted the task
     echo "<p>USER: ".getUserName($_SESSION['uid'])."</p>";
     echo "<p>$text</p>";
+    
+    // move button to bottom of box
     echo "<div class='clickable'>";
 
     // if the record is un-completed display the right button
